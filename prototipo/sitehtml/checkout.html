@@ -65,6 +65,10 @@
                 d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
             </svg>
           </li>
+          <li>
+            <button name="increase-font" id="increase-font" class="btn btn-light" title="Aumentar fonte">A +</button>
+            <button name="decrease-font" id="decrease-font" class="btn btn-light" title="Diminuir fonte">A -</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -117,20 +121,20 @@
       </div>
 
       <div class="col-md-8 order-md-1">
-        <a href="index.html"> <img src="img/casa2.png" alt="home icon"></a> > <a href="#"> Ração </a> > <a href="produto.html">Ração Royal Canin Mini Adult</a> > <a href="checkout.html">Checkout</a> 
+        <a href="index.html"> <img src="img/casa2.png" alt="home icon"></a> > <a href="javascript:history.go(-1)"> Produto </a> > <a href="checkout.html">Checkout</a> > Final
         <h4 class="mb-3">Endereço</h4>
         <form class="needs-validation" novalidate method="post">
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="firstName">Nome</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <input type="text" class="form-control" id="firstName" placeholder="Seu nome" value="" required>
               <div class="invalid-feedback">
                 Insira um nome válido!
               </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Sobrenome</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <input type="text" class="form-control" id="lastName" placeholder="Último Sobrenome" value="" required>
               <div class="invalid-feedback">
                 Insira um sobrenome válido.
               </div>
@@ -291,6 +295,30 @@
         }, false);
       })();
   </script>
+
+<script>
+  window.onload = function() {
+    var elementBody = document.querySelector('body');
+    var elementBtnIncreaseFont = document.getElementById('increase-font');
+    var elementBtnDecreaseFont = document.getElementById('decrease-font');
+    // Padrão de tamanho, equivale a 100% do valor definido no Body
+    var fontSize = 100;
+    // Valor de incremento ou decremento, equivale a 10% do valor do Body
+    var increaseDecrease = 10;
+
+    // Evento de click para aumentar a fonte
+    elementBtnIncreaseFont.addEventListener('click', function(event) {
+        fontSize = fontSize + increaseDecrease;
+        elementBody.style.fontSize = fontSize + '%';
+    });
+
+    // Evento de click para diminuir a fonte
+    elementBtnDecreaseFont.addEventListener('click', function(event) {
+        fontSize = fontSize - increaseDecrease;
+        elementBody.style.fontSize = fontSize + '%';
+    });
+  }
+</script>
 </body>
 
 </html>
